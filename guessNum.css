@@ -1,0 +1,50 @@
+* {
+    background-color: black;
+}
+
+
+#website {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #00BEEA;
+    font-family: 'Manrope';
+}
+
+
+h1 {
+    font-family: 'Sora';
+}
+
+
+.button {
+    width : 20vw;
+    height : 10vh;
+    border-radius: 16px;
+    color : white;
+    background-color: #00BEEA;
+    transition: 0.75s;
+    cursor: pointer;
+}
+
+.button:hover{
+    scale : 105%;
+    box-shadow: inset 0 0 20px white;
+}
+
+
+::placeholder {
+    text-align: center;
+    color: #00BEEA;
+}
+
+
+#numIn {
+    width : 30vw;
+    height : 5vh;
+    border-radius: 16px;
+    padding-left: 8px;
+    justify-content: center;
+    text-align: center;
+    color: #00BEEA;
+}
