@@ -63,7 +63,8 @@ function guessIsLow(numIn, guessMe) {       //If the guess is too low:
 }
 
 guess.addEventListener('click', () => {                                 //When the guess button is clicked:
-    if (isNaN(numIn)) {                                                 //Only necessary due to mobile.
+    let numIn = Number(document.getElementById('numIn').value)      //Gets the value in the number input box.
+    if (isNaN(numIn)) {                                         //Only necessary due to mobile.
         placeholder.innerHTML = ("Input must be a number!")             //Tells the user the input must be a number.
         placeholder.style.color = 'red'                                 //Sets the text colour to red.
     }
@@ -71,7 +72,6 @@ guess.addEventListener('click', () => {                                 //When t
         rbgRed = 252                                                    //Sets the default RGB Red.
         rgbBlue = 3                                                     //Sets the default RGB blue.
         if (attemptsleft > 0) {                                        //If the user still has attempts remaining:
-            let numIn = Number(document.getElementById('numIn').value)      //Gets the value in the number input box.
             if (numIn === guessMe) {                                        //If the guess is correct:
                 placeholder.innerHTML = ("Correct!")                            //Tells the user it is correct.
                 placeholder.style.color = 'green'                               //Sets the correct text to green.
