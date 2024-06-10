@@ -62,10 +62,10 @@ function guessIsLow(numIn, guessMe) {       //If the guess is too low:
     guessWrong()                                //Run the guessWrong function.
 }
 
-guess.addEventListener('click', () => {                         //When the guess button is clicked:
-    if (isNaN(numIn)) {
-        placeholder.innerHTML = ("Input must be a number!")                            //Tells the user the input must be a number.
-        placeholder.style.color = 'red'   
+guess.addEventListener('click', () => {                                 //When the guess button is clicked:
+    if (isNaN(numIn)) {                                                 //Only necessary due to mobile.
+        placeholder.innerHTML = ("Input must be a number!")             //Tells the user the input must be a number.
+        placeholder.style.color = 'red'                                 //Sets the text colour to red.
     }
     else {
         rbgRed = 252                                                    //Sets the default RGB Red.
