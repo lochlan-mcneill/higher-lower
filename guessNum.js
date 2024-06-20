@@ -2,10 +2,8 @@ guessMe = 5                                                             //Create
 let guess = document.getElementById('guess')                            //Gets the element for the guess input.
 let reset = document.getElementById('reset')                            //Gets the element for the reset button.
 let placeholder = document.getElementById('placeholder')                //Gets the element for the "Too high!"/"Too low" text.
-
 rbgRed = 252                                                            //Sets the default RGB Red.
 rgbBlue = 3                                                             //Sets the default RGB blue.
-
 let attempts = document.getElementById('attempts')                      //Gets the element for the attempts.
 let attemptsleft = 3                                                    //Sets the number of attempts left.
 
@@ -36,7 +34,6 @@ function guessWrong() {                                                 //When t
 
 /**
  * @function guessIsHigh    Called when the guess is too high
- * 
  * @param {number} numIn    The number entered by the user.
  * @param {number} guessMe  The randomly generated number to guess.
  */
@@ -63,9 +60,10 @@ function guessIsLow(numIn, guessMe) {                                   //If the
 }
 
 numIn.addEventListener('keydown', (e) => {                              //When a key is pressed:
-    if (e.key === "Enter") {                                            //If that key is the Enter key,
-    guessMade()                                                         //Run the guessMade function.
-}
+    let numIn = Number(document.getElementById('numIn').value)          //Gets the value in the number input box.
+    if (e.key === "Enter") {                                            //If that key is the Enter key,.
+        guessMade()                                                     //Run the guessMade function.
+    }
 })
 
 guess.addEventListener('click', () => {                                 //When the guess button is clicked:
@@ -74,25 +72,27 @@ guess.addEventListener('click', () => {                                 //When t
 
 function guessMade() {
     let numIn = Number(document.getElementById('numIn').value)          //Gets the value in the number input box.
-    if (isNaN(numIn)) {                                                 //Only necessary due to mobile.
-        placeholder.innerHTML = ("Input must be a number!")             //Tells the user the input must be a number.
-        placeholder.style.color = 'red'                                 //Sets the text colour to red.
-    }
-    else {
-        rbgRed = 252                                                    //Sets the default RGB Red.
-        rgbBlue = 3                                                     //Sets the default RGB blue.
-        if (attemptsleft > 0) {                                         //If the user still has attempts remaining:
-            if (numIn === guessMe) {                                    //If the guess is correct:
-                placeholder.innerHTML = ("Correct!")                    //Tells the user it is correct.
-                placeholder.style.color = 'green'                       //Sets the correct text to green.
-            }
-            else if (numIn > guessMe) {                                 //If the guess is too high:
-                placeholder.innerHTML = ("Too high!")                   //Tells the user it is too high.
-                guessIsHigh(numIn, guessMe)                             //Runs the guessIsHigh function.
-            }
-            else if (numIn < guessMe) {                                 //If the guess is too low:
-                placeholder.innerHTML = ("Too low!")                    //Tells the user it is too low.
-                guessIsLow(numIn, guessMe)                              //Runs the guessIsLow function.
+    if(numIn) {                                                         //Checks there is a number.
+        if (isNaN(numIn)) {                                             //Only necessary due to mobile.
+            placeholder.innerHTML = ("Input must be a number!")         //Tells the user the input must be a number.
+            placeholder.style.color = 'red'                             //Sets the text colour to red.
+        }
+        else {
+            rbgRed = 252                                                //Sets the default RGB Red.
+            rgbBlue = 3                                                 //Sets the default RGB blue.
+            if (attemptsleft > 0) {                                     //If the user still has attempts remaining:
+                if (numIn === guessMe) {                                //If the guess is correct:
+                    placeholder.innerHTML = ("Correct!")                //Tells the user it is correct.
+                    placeholder.style.color = 'green'                   //Sets the correct text to green.
+                }
+                else if (numIn > guessMe) {                             //If the guess is too high:
+                    placeholder.innerHTML = ("Too high!")               //Tells the user it is too high.
+                    guessIsHigh(numIn, guessMe)                         //Runs the guessIsHigh function.
+                }
+                else if (numIn < guessMe) {                             //If the guess is too low:
+                    placeholder.innerHTML = ("Too low!")                //Tells the user it is too low.
+                    guessIsLow(numIn, guessMe)                          //Runs the guessIsLow function.
+                }
             }
         }
     }
