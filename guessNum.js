@@ -62,7 +62,17 @@ function guessIsLow(numIn, guessMe) {                                   //If the
     guessWrong()                                                        //Run the guessWrong function.
 }
 
+numIn.addEventListener('keydown', (e) => {                              //When a key is pressed:
+    if (e.key === "Enter") {                                            //If that key is the Enter key,
+    guessMade()                                                         //Run the guessMade function.
+}
+})
+
 guess.addEventListener('click', () => {                                 //When the guess button is clicked:
+    guessMade()                                                         //Run the guessMade function.
+})
+
+function guessMade() {
     let numIn = Number(document.getElementById('numIn').value)          //Gets the value in the number input box.
     if (isNaN(numIn)) {                                                 //Only necessary due to mobile.
         placeholder.innerHTML = ("Input must be a number!")             //Tells the user the input must be a number.
@@ -86,7 +96,7 @@ guess.addEventListener('click', () => {                                 //When t
             }
         }
     }
-})
+}
 
 reset.addEventListener('click', () => {                                 //When the resrt button is clicked:
     attemptsleft = 3                                                    //Resets the attempts left to 3
